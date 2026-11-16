@@ -1,0 +1,16 @@
+{
+  "name": "blackbox-eventmaster",
+  "version": "0.5.0",
+  "main": "main.js",
+  "type": "module",
+  "private": true,
+  "author": "Panos Balaskas",
+  "repository": { "type": "git", "url": "git+https://github.com/Panos-Balaskas/companion-module-kuinta-eventmaster.git" },
+  "license": "MIT",
+  "engines": {
+    "node": "^22.14"
+  },
+  "dependencies": {
+    "@companion-module/base": "^1.12.0"
+  }
+}

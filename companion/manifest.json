@@ -1,0 +1,22 @@
+{
+  "type": "connection",
+  "id": "blackbox-eventmaster",
+  "name": "blackbox-eventmaster",
+  "shortname": "kteventmaster",
+  "description": "Programming aid for Barco Event Master (E2 / S3-4K / EX) and Encore 3: destinations, layers, sources, align/fill and jog/shuttle editing via JSON-RPC. Test thoroughly before using it in a show.",
+  "version": "0.5.0",
+  "license": "MIT",
+  "repository": "git+https://github.com/Panos-Balaskas/companion-module-kuinta-eventmaster.git",
+  "bugs": "https://github.com/Panos-Balaskas/companion-module-kuinta-eventmaster/issues",
+  "maintainers": [{ "name": "Panos Balaskas", "email": "Panos-Balaskas@users.noreply.github.com" }],
+  "legacyIds": [],
+  "runtime": {
+    "type": "node22",
+    "api": "nodejs-ipc",
+    "apiVersion": "0.0.0",
+    "entrypoint": "../main.js"
+  },
+  "manufacturer": "Kuinta tools",
+  "products": ["Event Master"],
+  "keywords": ["Video Switcher", "Presentation", "Video Wall"]
+}
