@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "author": "Panos Balaskas",
-  "repository": { "type": "git", "url": "git+https://github.com/Panos-Balaskas/companion-module-kuinta-eventmaster.git" },
+  "repository": { "type": "git", "url": "git+https://github.com/Panos-Balaskas/kuinta-companion-modules-.git" },
   "license": "MIT",
   "engines": {
     "node": "^22.14"
