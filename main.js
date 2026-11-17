@@ -156,6 +156,13 @@ class BarcoEventMasterInstance extends InstanceBase {
 			},
 			{ type: 'textinput', id: 'authValue', label: 'Operator ID / password', width: 6, default: '' },
 			{
+				type: 'checkbox',
+				id: 'maskWithWindow',
+				label: 'Legacy: send Mask together with Window (the Barco document says Mask must be sent separately; enable only if a crop appears when moving a window)',
+				width: 12,
+				default: false,
+			},
+			{
 				type: 'textinput',
 				id: 'guidesJson',
 				label: 'Guides storage (managed by the "Set guides" action, advanced)',
@@ -785,6 +792,9 @@ class BarcoEventMasterInstance extends InstanceBase {
 				}
 				if (mk) out.Mask = { Left: mk.left, Right: mk.right, Top: mk.top, Bottom: mk.bottom }
 			}
+			// The Barco JSON-RPC document: "Mask parameters must be sent separately from Window and LastSrcIdx".
+			// Legacy behaviour (Mask echoed together with Window) is available as a connection option.
+			if (!this.config?.maskWithWindow) delete out.Mask
 			return out
 		}
 	}

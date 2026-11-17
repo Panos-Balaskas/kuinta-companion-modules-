@@ -85,7 +85,8 @@ export class EventMasterClient {
 
 	/** Removes layers from the preview of a screen destination (same call as the official module's "Clear Layers"). */
 	clearLayers(destId, layerIds) {
-		return this.call('clearLayers', { id: destId, Layers: layerIds.map((id) => ({ id })) })
+		// Barco JSON-RPC document: { screenId, Layers: [{ id }] } (the document says it applies to custom mode)
+		return this.call('clearLayers', { screenId: destId, Layers: layerIds.map((id) => ({ id })) })
 	}
 
 	/** Fallback: takes a layer out of preview with changeContent. */

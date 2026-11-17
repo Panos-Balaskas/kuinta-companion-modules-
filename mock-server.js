@@ -68,9 +68,9 @@ const methods = {
 		return s ? ok({ id: s.id, Name: s.Name, IsActive: s.armed ? 1 : 0, BGLyr: s.bg, Layers: s.content }) : { success: 1 }
 	},
 	// CLEAR=fallback: the unit has no clearLayers (the module then uses changeContent PvwMode 0)
-	clearLayers: ({ id, Layers = [] }) => {
+	clearLayers: ({ screenId, Layers = [] }) => {
 		if (process.env.CLEAR === 'fallback') return { success: 1 }
-		const s = screens.find((d) => d.id === id)
+		const s = screens.find((d) => d.id === screenId) // documented parameter name: screenId
 		for (const l of Layers) {
 			const t = s?.content.find((c) => c.id === l.id)
 			if (t) t.PvwMode = 0
@@ -92,6 +92,8 @@ const methods = {
 				const w = Array.isArray(l.Window) ? l.Window[0] : l.Window
 				if (w && Object.keys(w).filter((k) => k.endsWith('Pos') || k.endsWith('Size')).length < 4) continue
 			}
+			// SPEC=1: the Barco document says Mask must be sent separately from Window, so a layer carrying both is ignored
+			if (process.env.SPEC === '1' && l.Window !== undefined && l.Mask !== undefined) continue
 			// STRICT_SHAPES=1: Window, Source and Mask must all use the same shape (array vs object), else the layer write is ignored
 			if (process.env.STRICT_SHAPES === '1') {
 				const shapes = [l.Window, l.Source, l.Mask].filter((x) => x !== undefined && typeof x === 'object').map((x) => Array.isArray(x))

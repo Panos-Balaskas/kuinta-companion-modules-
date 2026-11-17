@@ -70,3 +70,7 @@ User keys were removed (the Event Master API cannot save them).
 
 ## Clear layer
 **Clear layer** removes the selected layer (the A or B that is selected on each armed screen) from the preview, like the Clear button in Toolset.
+
+## Connection option: Mask together with Window
+The Barco JSON-RPC document says Mask parameters must be sent separately from Window. By default the module follows that.
+Earlier versions sent the current Mask together with every Window write; that is still available as "Legacy: send Mask together with Window" in the connection settings. Enable it only if a crop appears when a window is moved or resized.
