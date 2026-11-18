@@ -140,7 +140,7 @@ const errorsLogged = () => got.logs.filter((l) => l.level === 'error')
 	await wait(1800)
 	ok(lastStatus().status === 'ok', 'status OK (' + JSON.stringify(lastStatus()) + ')')
 	const fields = await call('getConfigFields', {})
-	ok(fields.fields.map((f) => f.id).join(',') === 'notice,host,port,pollInterval,authMode,authValue,guidesJson', 'config fields: ' + fields.fields.map((f) => f.id).join(','))
+	ok(fields.fields.map((f) => f.id).join(',') === 'notice,host,port,pollInterval,authMode,authValue,maskWithWindow,guidesJson', 'config fields: ' + fields.fields.map((f) => f.id).join(','))
 
 	console.log('2. Definitions')
 	const ids = (l) => l.map((x) => x.id).sort().join(',')
