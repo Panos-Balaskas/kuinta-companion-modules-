@@ -148,6 +148,12 @@ const methods = {
 		if (typeof presetName === 'string' && (explicit > 0 || armed > 0 || (AuxDestination || []).length > 0)) presets.push({ id: presets.length, Name: presetName, from: p.saveFromProgram === 1 ? 'pgm' : 'pvw', screens: explicit || armed })
 		return { success: 0, response: null }
 	},
+	renamePreset: ({ presetName, newPresetName, id }) => {
+		const p = presets.find((x) => x.Name === presetName || x.id === id)
+		if (!p) return { success: 1, response: null }
+		p.Name = newPresetName
+		return { success: 0, response: null }
+	},
 	listPresets: () => ok(presets),
 	listAuxContent: ({ id }) => {
 		const a = auxes.find((d) => d.id === id)

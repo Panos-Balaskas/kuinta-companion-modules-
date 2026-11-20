@@ -15,7 +15,7 @@ export class EventMasterClient {
 	/** Sends one JSON-RPC call and returns `result.response` (or `result`). Throws on any failure. */
 	async call(method, params = {}) {
 		// multi-operator mode: write calls need the operator index or the super user password
-		const WRITES = ['recallUserKey', 'savePreset', 'armUnarmDestination', 'activatePreset', 'changeContent', 'changeAuxContent', 'clearLayers']
+		const WRITES = ['recallUserKey', 'savePreset', 'armUnarmDestination', 'activatePreset', 'changeContent', 'changeAuxContent', 'clearLayers', 'renamePreset', 'deletePreset']
 		if (WRITES.includes(method) && this.authValue !== '' && this.authValue !== undefined) {
 			if (this.authMode === 'operator') params = { ...params, operatorId: Number(this.authValue) }
 			if (this.authMode === 'super_user') params = { ...params, password: String(this.authValue) }

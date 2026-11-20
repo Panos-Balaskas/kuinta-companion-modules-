@@ -14,3 +14,6 @@ Developer mode also works: put this folder inside the Developer Modules Path and
 
 ## Development
 Build and test notes are in [DEVELOPMENT.md](DEVELOPMENT.md).
+
+## MCP server (voice / chat programming aid)
+See [mcp/MCP.md](mcp/MCP.md): lets Claude save/rename presets, assign inputs and set window size/position by voice or chat.
